@@ -1,6 +1,6 @@
 package ejercicio2;
 
-import clases.BinaryTree;
+import clases.*;
 
 
 public class tp2_ejercicio2 {

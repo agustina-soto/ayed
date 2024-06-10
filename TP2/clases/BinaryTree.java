@@ -1,4 +1,5 @@
 package clases;
+
 public class BinaryTree<T> {
 	private T data;
 	private BinaryTree<T> leftChild;   
@@ -91,8 +92,8 @@ public class BinaryTree<T> {
     }
 
 	// 0<=n<=m
-	public void entreNiveles(int n, int m){
-		//Se utilizan dos colas, una para los nodos y otra para los niveles correspondientes de esos nodos
+    public void entreNiveles(int n, int m) {
+        //Se utilizan dos colas, una para los nodos y otra para los niveles correspondientes de esos nodos
 		Queue<BinaryTree<T>> nodos = new Queue<>();
 		Queue<Integer> niveles = new Queue<Integer>();
 
@@ -100,15 +101,16 @@ public class BinaryTree<T> {
 		nodos.enqueue(this);
 		niveles.enqueue(0);
 
-		while (!nodos.isEmpty()) {
+        while (!nodos.isEmpty()) {
 			BinaryTree<T> nodoActual = nodos.dequeue();
 			int nivelActual = niveles.dequeue();
+			if (nivelActual >= n && nivelActual <= m){
+				System.out.println("Nivel actual: " + nivelActual);
+				System.out.println("Nodo actual: " + nodoActual.getData());
+			}
 
-			if (nivelActual >= n && nivelActual <= m)
-				System.out.println(nodoActual.getData() + " ");
-			
 			if (nodoActual.hasLeftChild()) {
-				nodos.enqueue(nodoActual.getLeftChild()); // Guarda 
+				nodos.enqueue(nodoActual.getLeftChild());
 				niveles.enqueue(nivelActual + 1); // Incrementa en uno el nivel almacenado
 			}
 
@@ -116,10 +118,6 @@ public class BinaryTree<T> {
 				nodos.enqueue(nodoActual.getRightChild());
 				niveles.enqueue(nivelActual + 1);
 			}
-			
-		System.out.println();
-
-		}
+    	}
 	}
-		
 }

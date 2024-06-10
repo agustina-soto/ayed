@@ -1,7 +1,6 @@
-package ejercicio3;
+package clases;
 
 import java.util.ArrayList;
-import clases.*;
 
 public class ContadorArbol {
     private BinaryTree<Integer> arbol;

@@ -1,6 +1,7 @@
 package ejercicio3;
 
 import clases.BinaryTree;
+import clases.ContadorArbol;
 
 public class tp2_ejercicio3 {
     public static void main(String[] args) {

@@ -1,8 +1,8 @@
-package ejercicio4;
+package ejercicio5;
 
 import clases.*;
 
-public class tp2_ejercicio4 {
+public class tp2_ejercicio5 {
     public static void main(String[] args) {
         // Creación del árbol binario lleno
         BinaryTree<Integer> raiz = new BinaryTree<>(10);
@@ -15,8 +15,7 @@ public class tp2_ejercicio4 {
         BinaryTree<Integer> nodo7 = new BinaryTree<>(7);
         BinaryTree<Integer> nodo8 = new BinaryTree<>(8);
 
-        // Creación de la red binaria llena
-        RedBinariaLlena red = new RedBinariaLlena(raiz);
+        ProfundidadDeArbolBinario arbol = new ProfundidadDeArbolBinario(raiz);
 
         raiz.addLeftChild(nodo1);
         raiz.addRightChild(nodo2);
@@ -33,13 +32,10 @@ public class tp2_ejercicio4 {
                               |                         |
                     nodo3: 5 _|_ nodo4: 9     nodo5: 6 _|_ nodo6: 12
                       |
-           nodo7: 7 __|__ nodo8: 8
-        
-        El mayor retardo de este arbol es de 30 segundos.
+           nodo7: 7 __|__ nodo8: 8        
         */
 
-        // Cálculo del mayor retardo de reenvío
-        int mayorRetardo = red.retardoReenvio();
-        System.out.println("El mayor retardo de reenvío es: " + mayorRetardo);
+        System.out.println(arbol.sumaElementosProfundidad(2));
+
     }
 }

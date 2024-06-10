@@ -1,8 +1,4 @@
-package ejercicio4;
-
-// Resuelto con recorrido en profundidad - por niveles
-
-import clases.BinaryTree;
+package clases;
 
 public class RedBinariaLlena {
     private BinaryTree<Integer> a;
