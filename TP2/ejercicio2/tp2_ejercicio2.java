@@ -1,3 +1,8 @@
+package ejercicio2;
+
+import clases.BinaryTree;
+
+
 public class tp2_ejercicio2 {
 
 	public static void main(String[] args) {

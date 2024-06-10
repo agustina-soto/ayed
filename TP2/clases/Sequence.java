@@ -1,3 +1,4 @@
+package clases;
 public abstract class Sequence {
 	
 	public abstract int size();

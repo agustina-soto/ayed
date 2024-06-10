@@ -1,3 +1,4 @@
+package clases;
 public class BinaryTree<T> {
 	private T data;
 	private BinaryTree<T> leftChild;   
