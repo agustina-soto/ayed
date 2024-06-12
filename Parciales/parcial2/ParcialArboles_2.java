@@ -1,9 +1,21 @@
-package Parciales;
+package Parciales.parcial2;
 
 import clases.BinaryTree;
 
 public class ParcialArboles_2 {
     private BinaryTree<Integer> arbol;
+
+    public ParcialArboles_2(BinaryTree<Integer> a){
+        this.arbol = a;
+    }
+
+    public void setArbol(BinaryTree<Integer> a){
+        this.arbol = a;
+    }
+
+    public BinaryTree<Integer> getArbol(){
+        return this.arbol;
+    }
 
     // Devuelve true si arbol1 es prefijo de arbol2, false en caso contrario.
     public boolean esPrefijo(BinaryTree<Integer> arbol1, BinaryTree<Integer> arbol2){
@@ -35,30 +47,4 @@ public class ParcialArboles_2 {
         }
         return cumple;
     }
-
-
-
-
-
-
-
-
-
-
-
-/*
-    if (arbol1 == null){
-        return true;
-    }
-    si coinciden:
-        si arbo1 tiene izquierdo && arbol2 tiene izquierdo:
-            busca con izquierdo(nodo.getLeftChild(), arbolOriginal.getLeftChild())
-        si tiene derecho:
-            busca con derecho(nodo.getRightChild(), arbolOriginal)
-
-    si es una hoja:
-    si no es una hoja:
-*/
-
-
 }
