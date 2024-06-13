@@ -2,7 +2,7 @@ package Parciales.parcial2;
 
 import clases.*;
 
-public class tp2_ejercicio7 {
+public class tp2_ejercicio8 {
 
 	public static void main(String[] args) {
 		BinaryTree<Integer> nodo1 = new BinaryTree<>(1);

@@ -1,6 +1,4 @@
-package Parciales.parcial2;
-
-import clases.BinaryTree;
+package clases;
 
 public class ParcialArboles_2 {
     private BinaryTree<Integer> arbol;

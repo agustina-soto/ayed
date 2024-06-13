@@ -4,7 +4,6 @@ import clases.*;
 
 public class tp2_ejercicio6 {
     public static void main(String[] args) {
-        // Creación del árbol binario lleno
         BinaryTree<Integer> nodo1 = new BinaryTree<>(1);
         BinaryTree<Integer> nodo2 = new BinaryTree<>(2);
         BinaryTree<Integer> nodo3 = new BinaryTree<>(3);
