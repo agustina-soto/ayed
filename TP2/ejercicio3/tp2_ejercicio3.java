@@ -29,7 +29,7 @@ public class tp2_ejercicio3 {
                               |                         |
                     nodo3: 5 _|_ nodo4: 9     nodo5: 6 _|_ nodo6: 12
         
-        Cantidad de nros pares = 
+        Cantidad de nros pares = 4
         */
 
         int cantInOrden = arbol.numerosParesInOrden().size();

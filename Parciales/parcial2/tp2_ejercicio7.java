@@ -1,6 +1,5 @@
 package Parciales.parcial2;
 
-import Parciales.ParcialArboles_1;
 import clases.*;
 
 public class tp2_ejercicio7 {

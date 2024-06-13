@@ -23,12 +23,24 @@ public class tp2_ejercicio6 {
         nodo5.addLeftChild(nodo7);
         nodo5.addRightChild(nodo8);
 
+/*
+                              nodo1
+                                |
+                   nodo2 _______|_______ nodo3
+                     |                     |
+                    _|__ nodo4     nodo5 __|__ nodo6
+                                     |
+                             nodo7 __|__ nodo8
+*/
+
         // Método auxiliar para imprimir el árbol (recorrido en orden)
-        System.out.println("Antes de la suma");
+        System.out.println(" ----- Antes de la suma -----");
         nodo1.entreNiveles(0, 3);
 
+        System.out.println();
+
         BinaryTree<Integer> nuevoArbol = transformacion.suma();
-        System.out.println("Despues de la suma");
+        System.out.println("----- Despues de la suma -----");
         nuevoArbol.entreNiveles(0, 3);
     }
 }

@@ -1,4 +1,4 @@
-package Parciales;
+package Parciales.parcial1;
 
 import clases.BinaryTree;
 
