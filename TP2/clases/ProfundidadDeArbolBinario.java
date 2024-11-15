@@ -16,6 +16,7 @@ public class ProfundidadDeArbolBinario {
     }
 
     // Devuelve la suma de todos los nodos del árbol que se encuentren a la profundidad pasada como argumento
+    // No sé por qué lo hice con dos colas, es mejor, más fácil y mucho más legible con una cola, un int nroNivel y un BinaryTree<Integer> nodo Actual; no se necesita más que eso :/
     public int sumaElementosProfundidad (int p){
         Queue<BinaryTree<Integer>> nodos = new Queue<>();
         Queue<Integer> niveles = new Queue<>();

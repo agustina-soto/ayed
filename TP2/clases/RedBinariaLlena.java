@@ -15,7 +15,7 @@ public class RedBinariaLlena {
         return this.a;
     }
 
-    public int mayorRetardoReenvio(BinaryTree<Integer> arbol){
+    private int mayorRetardoReenvio(BinaryTree<Integer> arbol){
         if (arbol.isLeaf())
             return arbol.getData();
 
@@ -24,7 +24,7 @@ public class RedBinariaLlena {
         int retardoDer = 0;
     
         if (arbol.hasLeftChild())
-            retardoIzq = mayorRetardoReenvio(arbol.getLeftChild());
+            retardoIzq += mayorRetardoReenvio(arbol.getLeftChild());
         if (arbol.hasRightChild())
             retardoDer += mayorRetardoReenvio(arbol.getRightChild());
 
