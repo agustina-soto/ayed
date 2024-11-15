@@ -79,16 +79,15 @@ public class BinaryTree<T> {
 		return suma;
 	}
 
-
-    public BinaryTree<T> espejo(){
-        BinaryTree<T> arbolEspejo = new BinaryTree<T>(this.getData());
-    	if (this.isLeaf())
-    		return this;
-    	if (this.hasLeftChild())
-    		arbolEspejo.addRightChild(this.getLeftChild().espejo());
-    	if (this.hasRightChild())
-    		arbolEspejo.addLeftChild(this.getRightChild().espejo());
-        return arbolEspejo;
+    public BinaryTree<T> espejo() {
+    	BinaryTree<T> esp = new BinaryTree<T>(this.getData());
+    	if(this.hasLeftChild()) {
+    		esp.addRightChild(this.getLeftChild().espejo());
+    	}
+    	if(this.hasRightChild()) {
+    		esp.addLeftChild(this.getRightChild().espejo());
+    	}
+    	return esp;
     }
 
 	// 0<=n<=m
