@@ -7,14 +7,6 @@ public class Transformacion {
         this.arbol = a;
     }
 
-    public void setTransformacion(BinaryTree<Integer> a){
-        this.arbol = a;
-    }
-
-    public BinaryTree<Integer> getTransformacion(){
-        return this.arbol;
-    }
-
     public BinaryTree<Integer> suma(){
         sumaRecursiva(this.arbol);
         return arbol;
@@ -34,5 +26,31 @@ public class Transformacion {
         nodo.setData(suma);
         return (suma+aux);
     }
-
+    
+    // ----- OPCION 2 (devolviendo un BinaryTree nuevo en vez de modificar el original
+    public BinaryTree<Integer> suma2(){
+    	return (sumaRecursiva2(this.arbol));
+    }
+   
+    private BinaryTree<Integer> sumaRecursiva2(BinaryTree<Integer> a) {
+    	BinaryTree<Integer> aux = new BinaryTree<Integer>();
+    	if(a.isLeaf()) {
+    		aux.setData(0);
+    	}
+    	else {
+	    	int suma = 0;
+	    	if(a.hasLeftChild()) {
+	    		BinaryTree<Integer> hijoIzq = sumaRecursiva2(a.getLeftChild());
+	    		aux.addLeftChild(hijoIzq);
+	    		suma += a.getLeftChild().getData() + hijoIzq.getData();
+	    	}	
+	    	if(a.hasRightChild()) {
+	    		BinaryTree<Integer> hijoDer = sumaRecursiva2(a.getRightChild());
+	    		aux.addRightChild(hijoDer);
+	    		suma += a.getRightChild().getData() + hijoDer.getData();
+	    	}
+	    	aux.setData(suma);
+    	}
+    	return aux;
+    }
 }
