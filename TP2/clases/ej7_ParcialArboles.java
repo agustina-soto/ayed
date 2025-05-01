@@ -4,23 +4,36 @@ public class ej7_ParcialArboles {
 	private BinaryTree<Integer> a;
 	
 	public boolean isLeftTree(int num) {
-		BinaryTree<Integer> nodoABuscar = buscarNum(num);
 		int valorIzq = 0, valorDer = 0;
-		if (nodoABuscar != null) { // Si lo encontré
-			if(!nodoABuscar.hasLeftChild())
-				valorIzq = -1;
-			else
-				valorIzq = sumaSubarbol(nodoABuscar.getLeftChild());
-			if(!nodoABuscar.hasRightChild())
-				valorDer = -1;
-			else
-				valorDer = sumaSubarbol(nodoABuscar.getRightChild());
+		if(a != null) {
+			BinaryTree<Integer> nodoABuscar = buscarNum(a, num);
+			if (nodoABuscar != null) { // Si lo encontré
+				if(!nodoABuscar.hasLeftChild())
+					valorIzq = -1;
+				else
+					valorIzq = sumaSubarbol(nodoABuscar.getLeftChild());
+				if(!nodoABuscar.hasRightChild())
+					valorDer = -1;
+				else
+					valorDer = sumaSubarbol(nodoABuscar.getRightChild());
+			}	
 		}
 		return (valorIzq > valorDer);
 	}
-	
-	private BinaryTree<Integer> buscarNum(int num) {
-		return null;
+
+	private BinaryTree<Integer> buscarNum(BinaryTree<Integer> a, int num) {
+		if(a.getData() == num) {
+			return a;
+		}
+		//Si no lo encontré todavía
+		BinaryTree<Integer> aux = null;
+		if(a.hasLeftChild()) {
+			aux = buscarNum(a.getLeftChild(), num);
+		}
+		if(a.hasRightChild() && (aux == null)) { // Si tiene hd y todavía no lo encontré
+			aux = buscarNum(a.getRightChild(), num);
+		}
+		return aux;
 	}
 	
 	private int sumaSubarbol(BinaryTree<Integer> a) {
@@ -41,7 +54,7 @@ public class ej7_ParcialArboles {
 		 tiene hi tiene hd --> no sumo, sugo buscando
 		 tiene hi no tiene hd --> sumo
 		 no tiene hi tiene hd --> sumo
-		 no tiene hi no tiene hd --> creeria que no entra siquiera a este metodo
+		 no tiene hi no tiene hd --> no entra a este metodo
 		 */
 	}
 
