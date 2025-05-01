@@ -68,15 +68,17 @@ public class BinaryTree<T> {
 		return this.getData().toString();
 	}
 
-	public  int contarHojas() {
+	public int contarHojas() {
         if (this.isLeaf())
 		    return 1;
-        int suma = 0; // Inicializa contador, solo ejecuta esta linea una vez por la raiz
-        if (this.hasLeftChild())
-            suma += this.getLeftChild().contarHojas();
-        if (this.hasRightChild())
-            suma += this.getRightChild().contarHojas();
-		return suma;
+        else { // No es necesario pero bueno
+        	int suma = 0;
+	        if (this.hasLeftChild())
+	            suma += this.getLeftChild().contarHojas();
+	        if (this.hasRightChild())
+	            suma += this.getRightChild().contarHojas();
+			return suma;
+		}
 	}
 
     public BinaryTree<T> espejo() {
@@ -91,6 +93,7 @@ public class BinaryTree<T> {
     }
 
 	// 0<=n<=m
+    // No es la mejor solución, la que tengo en papel es mucho más simple (usa una sola cola)
     public void entreNiveles(int n, int m) {
         //Se utilizan dos colas, una para los nodos y otra para los niveles correspondientes de esos nodos
 		Queue<BinaryTree<T>> nodos = new Queue<>();

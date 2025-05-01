@@ -54,3 +54,36 @@ public class Transformacion {
     	return aux;
     }
 }
+/*
+	public BinaryTree<Integer> suma(){
+		if(a.isEmpty())
+			return null;
+		sumaRecursiva(a);
+		return a;
+	}
+	
+	private int sumaRecursiva(BinaryTree<Integer> a) {
+		int aux = a.getData();
+		int sumaIzq, sumaDer = 0;
+		if (a.hasLeftChild())
+			sumaIzq = sumaRecursiva(a.getLeftChild());
+		if (a.haasRightChild())
+			sumaDer = sumaRecursiva(a.getRightChild());
+		a.setData(sumaIzq+sumaDer); // Si es hoja hace 0+0
+		return aux + sumaIzq + sumaDer;
+	}
+
+	private int sumaRecursivaV2(BinaryTree<Integer> nodo){
+        int aux = nodo.getData();
+        int suma = 0;
+        if (nodo.hasLeftChild())
+            suma += sumaRecursiva(nodo.getLeftChild());
+        if (nodo.hasRightChild())
+            suma += sumaRecursiva(nodo.getRightChild());
+        nodo.setData(suma);
+        return (suma+aux);
+    }
+
+// en la v2 se chequeaba si es leaf y se hacian cosas pero en mi version se hace igual sin consultar explicitamente, esta bien o no? y la suma yo la separe pero no esnecesario, igualmente prefiero dejarla separada porque fue lo que se me ocurrio y porque entiendo que no lo hace menos correcto para la catedra... verdad? 
+
+*/
