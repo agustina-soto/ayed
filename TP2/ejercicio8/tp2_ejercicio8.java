@@ -1,8 +1,8 @@
-package ejercicio7;
+package ejercicio8;
 
 import clases.*;
 
-public class tp2_ejercicio7 {
+public class tp2_ejercicio8 {
 	public static void main(String[] args) {
 		// Armamos un árbol de ejemplo
 		BinaryTree<Integer> raiz = new BinaryTree<>(7);
@@ -16,10 +16,9 @@ public class tp2_ejercicio7 {
 		right.addRightChild(new BinaryTree<>(4));
 		
 
-		ej7_ParcialArboles parcial7 = new ej7_ParcialArboles(raiz);
-		System.out.println("isLeftTree(7): "+parcial7.isLeftTree(7)); // true
-		System.out.println("isLeftTree(2): "+parcial7.isLeftTree(2)); // false
-		System.out.println("isLeftTree(-5): "+parcial7.isLeftTree(-5)); // true
-		System.out.println("isLeftTree(19): "+parcial7.isLeftTree(19)); // false
+		BinaryTree<Integer> arbol1 = new BinaryTree<>(7);
+		arbol1.addLeftChild(new BinaryTree<>(23));
+		ej8_ParcialArboles parcial8 = new ej8_ParcialArboles();
+		System.out.println("esPrefijo(arbol1, raiz): "+parcial8.esPrefijo(arbol1,raiz));
 	}
 }

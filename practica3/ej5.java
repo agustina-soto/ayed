@@ -1,4 +1,4 @@
-package tp3;
+package practica3;
 
 public class ej5 { //clase general tree
 		public boolean esAncestro(T a , T b ) {

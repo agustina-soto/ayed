@@ -3,9 +3,13 @@ package clases;
 public class ej7_ParcialArboles {
 	private BinaryTree<Integer> a;
 	
+	public ej7_ParcialArboles(BinaryTree<Integer> a) {
+		this.a = a;
+	}
+	
 	public boolean isLeftTree(int num) {
 		int valorIzq = 0, valorDer = 0;
-		if(a != null) {
+		if(a != null) { // Aca deberia preguntar x empty??
 			BinaryTree<Integer> nodoABuscar = buscarNum(a, num);
 			if (nodoABuscar != null) { // Si lo encontré
 				if(!nodoABuscar.hasLeftChild())

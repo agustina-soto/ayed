@@ -26,7 +26,7 @@ public class Transformacion {
         nodo.setData(suma);
         return (suma+aux);
     }
-    
+
     // ----- OPCION 2 (devolviendo un BinaryTree nuevo en vez de modificar el original
     public BinaryTree<Integer> suma2(){
     	return (sumaRecursiva2(this.arbol));
@@ -54,27 +54,31 @@ public class Transformacion {
     	return aux;
     }
 }
-/*
-	public BinaryTree<Integer> suma(){
+
+/*  public BinaryTree<Integer> suma(){
 		if(a.isEmpty())
 			return null;
 		sumaRecursiva(a);
 		return a;
 	}
-	
+
 	private int sumaRecursiva(BinaryTree<Integer> a) {
 		int aux = a.getData();
 		int sumaIzq, sumaDer = 0;
 		if (a.hasLeftChild())
 			sumaIzq = sumaRecursiva(a.getLeftChild());
-		if (a.haasRightChild())
+		if (a.hasRightChild())
 			sumaDer = sumaRecursiva(a.getRightChild());
 		a.setData(sumaIzq+sumaDer); // Si es hoja hace 0+0
 		return aux + sumaIzq + sumaDer;
 	}
 
-	private int sumaRecursivaV2(BinaryTree<Integer> nodo){
+    private int sumaRecursiva(BinaryTree<Integer> nodo){
         int aux = nodo.getData();
+        if (nodo.isLeaf()){
+            nodo.setData(0);
+            return aux;
+        }
         int suma = 0;
         if (nodo.hasLeftChild())
             suma += sumaRecursiva(nodo.getLeftChild());
@@ -84,6 +88,9 @@ public class Transformacion {
         return (suma+aux);
     }
 
-// en la v2 se chequeaba si es leaf y se hacian cosas pero en mi version se hace igual sin consultar explicitamente, esta bien o no? y la suma yo la separe pero no esnecesario, igualmente prefiero dejarla separada porque fue lo que se me ocurrio y porque entiendo que no lo hace menos correcto para la catedra... verdad? 
 
+// en la v2 se chequea si es leaf. en mi version se hace igual sin consultar explicitamente, esta bien o no? y la suma yo la separe pero no es necesario, igualmente prefiero dejarla separada porque fue lo que se me ocurrio y porque entiendo que no lo hace menos correcto para la catedra... verdad? 
+// Es importante chequear por las hojas explicitamente?
+  
+ 
 */

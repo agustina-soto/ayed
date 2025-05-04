@@ -1,4 +1,4 @@
-package tp3;
+package practica3;
 
 public class ej3 {
 	private void recorrerNiveles(GeneralTree<Integer> a) {
