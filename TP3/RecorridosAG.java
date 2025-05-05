@@ -3,10 +3,12 @@ package TP3;
 import java.util.ArrayList;
 import java.util.List;
 
+import clases.Queue;
+
 public class RecorridosAG {
-	// Retorna una lista con los elementos impares del árbol “a”
-	// que sean mayores al valor “n” pasados como parámetros
+	// Retorna una lista con los elementos impares del árbol “a” que sean mayores al valor “n” pasados como parámetros
 	
+	// PreOrden ------------------------------------------------------------------------
 	public List<Integer> numerosImparesMayoresQuePreOrden (GeneralTree <Integer> a, Integer n) {
 		List<Integer> lista = new ArrayList<>();
 		if(!a.isEmpty()) {
@@ -24,6 +26,7 @@ public class RecorridosAG {
 		}
 	}
 
+	// InOrden ------------------------------------------------------------------------
 	public List<Integer> numerosImparesMayoresQueInOrden (GeneralTree <Integer> a, Integer n) {
 		List<Integer> lista = new ArrayList<>();
 		if(!a.isEmpty()) {
@@ -35,9 +38,10 @@ public class RecorridosAG {
 	private void ej2InOrden(GeneralTree <Integer> a, Integer n, List<Integer> lista) {
 		List<GeneralTree<Integer>> hijos = a.getChildren();
 		if(a.hasChildren()) {
-			ej2InOrden(hijos.get(0), n, lista); // De todos los children me quedo con el que esta en la pos 0
+			ej2InOrden(hijos.get(0), n, lista); // De todos los children me quedo con el que esta en la pos 0 y llamo con ese
 		}
-		// Cuando llega hasta aca es porque un nodo no tenia hijos, entonces se corta la recursion del subarbol: ahora proceso el dato, despues la raiz y despues los otros hijos
+		// Cuando llega hasta aca es porque un nodo no tenia hijos, llegue a la hoja "mas izquierda"
+		// Entonces se corta la recursion del subarbol: ahora proceso el dato, despues la raiz y despues los otros hijos
 		if( (a.getData() > n) && (a.getData() % 2 != 0) ) {
 			lista.add(a.getData());
 		}
@@ -48,7 +52,8 @@ public class RecorridosAG {
 		}
 		
 	}
-	 
+
+	// PostOrden ------------------------------------------------------------------------
 	public List<Integer> numerosImparesMayoresQuePostOrden (GeneralTree <Integer> a, Integer n) {
 		List<Integer> lista = new ArrayList<>();
 		if(!a.isEmpty()) {
@@ -67,9 +72,35 @@ public class RecorridosAG {
 		
 	}
 
+	// Por Niveles ------------------------------------------------------------------------
 	public List<Integer> numerosImparesMayoresQuePorNiveles(GeneralTree <Integer> a, Integer n) {
 		List<Integer> lista = new ArrayList<>();
-		
+		if(a.isEmpty() ) {
+			return lista;
+		}
+		Queue<GeneralTree<Integer>> cola = new Queue<>();
+		cola.enqueue(a);
+		cola.enqueue(null);
+		while(!cola.isEmpty()) {
+			GeneralTree<Integer> nodoActual = cola.dequeue();
+			if(nodoActual != null) {
+				if((nodoActual.getData() > n) && (nodoActual.getData() % 2 != 0)) {
+					lista.add(nodoActual.getData());
+				}
+				for(GeneralTree<Integer> hijo : nodoActual.getChildren()) {
+					cola.enqueue(hijo);
+				}
+			}
+			else {
+				if(!cola.isEmpty()) {
+					// Cambio de nivel
+					cola.enqueue(null);
+				}
+			}
+		}
 		return lista;
 	}
+	
+	// Eso está bien supongo pero como no me importan realmente los niveles ni los cambios de nivel, podría no usar el encolar null por fin de nivel.
+	// Me ahorro validaciones innecesarias (chequeos por != null).
 }
