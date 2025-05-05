@@ -104,3 +104,10 @@ public class RecorridosAG {
 	// Eso está bien supongo pero como no me importan realmente los niveles ni los cambios de nivel, podría no usar el encolar null por fin de nivel.
 	// Me ahorro validaciones innecesarias (chequeos por != null).
 }
+
+
+//b)Si ahora tuviera que implementar estos métodos en la clase GeneralTree<T>,
+//¿qué modificaciones haría tanto en la firma como en la implementación de los mismos?
+//Respuesta:
+	// En la firma saco el parámetro GeneralTree porque va a ser el objeto this.
+	// En la implementación de ls¿os métodos sólo modifico que en vez de invocar al objetos "a" uso el objeto "this".
