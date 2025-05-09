@@ -1,5 +1,6 @@
 package TP3;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -136,5 +137,58 @@ public class GeneralTree<T> {
 			}
 		}
 		return max;
+	}
+
+	// Devuelve true si el valor “a” es ancestro del valor “b”.
+	// Asumo que "a" no es igual a "b"...
+	public boolean esAncestro(T a, T b) {
+		boolean ok = false;
+		if(a != null && b != null && !this.isEmpty()) {
+			GeneralTree<T> nodoA = buscarNodoConValorIterativo(a);
+			if(nodoA != null) { // Si encontré un nodo con el valor A
+				GeneralTree<T> nodoB = nodoA.buscarNodoConValorIterativo(b); 	// Reutilizo el mismo método para buscar "b" en nodoA
+																				// Podría meter la búsqueda en la asignación del ok pero así me es más claro ;)
+				ok = (nodoB != null); // Si encontré un nodo hijo con valor "b" o no
+			}
+		}
+		return ok;
+	}
+
+	private GeneralTree<T> buscarNodoConValorIterativo(T valor) {
+		boolean found = false;
+		GeneralTree<T> nodo = new GeneralTree<>();
+		Queue<GeneralTree<T>> cola = new Queue<>();
+		cola.enqueue(this);
+		cola.enqueue(null);
+		while(!cola.isEmpty() && !found) {
+			nodo = cola.dequeue();
+			if(nodo != null) {
+				if(nodo.getData().equals(valor)) {
+					found = true;
+					// en nodo me quedó el nodo que busco
+				}
+				else {
+					for(GeneralTree<T> hijo : nodo.getChildren()) {
+						cola.enqueue(hijo);
+					}
+				}
+			}
+			else if(!cola.isEmpty()) {
+				cola.enqueue(null);
+			}
+		}
+		return nodo;
+	}
+
+	private GeneralTree<T> buscarNodoConValorRecursivo(T valor) {
+		if(this.getData().equals(valor)) {
+			return this;
+		}
+		GeneralTree<T> nodo = null;
+		Iterator<GeneralTree<T>> iterator = this.getChildren().iterator();
+		while(iterator.hasNext() && nodo == null) { // Mientras haya hijos por iterar y mientras no haya encontrado un resultado válido (uno distinto de null): sigo buscando
+			nodo = buscarNodoConValorRecursivo(valor);
+		}
+		return nodo;
 	}
 }
