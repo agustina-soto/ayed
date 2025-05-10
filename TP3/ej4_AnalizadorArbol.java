@@ -24,7 +24,7 @@ public class ej4_AnalizadorArbol {
 				GeneralTree<AreaEmpresa> nodo = cola.dequeue();
 				if(nodo != null) {
 					cant++;
-					suma += nodo.getData().getTardanza(); // Lo que tardé en darme cuenta que se accedía así.... mamita
+					suma += nodo.getData().getTardanza();
 					
 					for(GeneralTree<AreaEmpresa> hijo : nodo.getChildren()) {
 						cola.enqueue(hijo);
